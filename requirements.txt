@@ -1,4 +1,5 @@
 Guilherme Oliveira Santos
 SI 2022/2 - UFOP
 
-abra o arquivo
+abra o arquivo pelo terminal
+
