@@ -28,3 +28,9 @@ Tudo bem?:Tudo bem, e com voce?
 tudo bom?:tudo ótimo.
 Tudo bom?:Tudo ótimo
 você conhece o gustavo?:ele é esquisito
+test56:teste ok
+test57:teste 57 ok
+test888:teste 888 ok
+tudo joia?:tudo joia.
+teste9999:teste ok
+teste 10:ok

@@ -6,12 +6,15 @@
 #include <sstream>
 #include <typeinfo>
 #include <algorithm>
+#include <fstream>
 
 
 using namespace std;
 
 class JarvisBrain {        // A classe
-  public:              // O acesso
+  public:
+  fstream newfile;
+  string botName = "Jarvis: ";              // O acesso
     void mathIdade() {  //A função
         time_t mytime;
         mytime = time(NULL);
@@ -30,6 +33,39 @@ class JarvisBrain {        // A classe
 
         cout << botName << "Fui criado " << diaCriacao << "/" << mesCriacao << "/" << anoCriacao << endl;
         cout << botName << "Tenho " << diasDiferenca << " dia(s), ou " << mesDiferenca << " mese(s) ou " << anoDiferenca << " ano(s)." << endl;
+}
+
+  void aprendizado(string x){
+    string y;
+    cout << botName << "Desculpe, ainda nao sei responder a isso. Poderia me ensinar?\n"; //Preparando o bot para aprender
+    cout << "Digite para o Jarvis: -";
+    getline(cin, y);
+    if (y == "sim"){
+        string newKnowledge;
+        cout << botName << "Como voce responderia a isso?\n";
+        cout << "Digite para o Jarvis: -";
+        getline(cin, newKnowledge);
+
+
+        newfile.open("botLearning.txt",ios::app);
+        if (newfile.is_open())
+        {
+        newfile<<x<<":";
+        newfile<<newKnowledge<<endl;
+        newfile.close();
+        newKnowledge = "";
+        cout << botName << "Aprendido com sucesso" << endl;
+
+    }
+
+    }
+
+    else{
+        cout << botName << "Ok, nao irei aprender.\n";
+    }
+
+        
+
 }
 
 

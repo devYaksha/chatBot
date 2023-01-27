@@ -11,49 +11,21 @@ using namespace std;
 string x;
 bool meuBoleano = true;
 string botName = "Jarvis: ";
-fstream newfile;
+
 JarvisBrain myObj;
 
 
-void aprendizado(){
-    string y;
-    cout << botName << "Desculpe, ainda nao sei responder a isso. Poderia me ensinar?\n"; //Preparando o bot para aprender
-    cout << "Digite para o Jarvis: -";
-    getline(cin, y);
-    if (y == "sim"){
-        string newKnowledge;
-        cout << botName << "Como voce responderia a isso?\n";
-        cout << "Digite para o Jarvis: -";
-        getline(cin, newKnowledge);
-
-
-        newfile.open("botLearning.txt",ios::app);
-        if (newfile.is_open())
-        {
-        newfile<<x<<":";
-        newfile<<newKnowledge<<endl;
-        newfile.close();
-        cout << botName << "Aprendido com sucesso" << endl;
-
-    }
-
-    }
-
-    else{
-        cout << botName << "Ok, nao irei aprender.\n";
-    }
-
-        
-
-}
 
 string getResponse(string input, vector<pair<string, string>> dataset) {
     for (auto p : dataset) {
         if (input == p.first) {
             return p.second;
         }
+        
     } 
-    aprendizado();
+
+    myObj.aprendizado(x);
+    return "nulo";
 }
 
 
@@ -87,14 +59,14 @@ int main(int argc, char const *argv[])
             }
             
         file.close();}
+    string phrase = getResponse(x,dataset);
+    if(line.find(":" && x==line)&& phrase != "nulo"){
 
-    if(line.find(":" && x==line)){
-
-            cout << botName << getResponse(x, dataset) << endl;    
+            cout << botName << phrase << endl;    
 
     }
 
-    string phrase = getResponse(x,dataset);
+
     string command = "espeak -v +f3 \""+phrase+"\"";
     const char* charCommand=command.c_str();
     system(charCommand);
