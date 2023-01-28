@@ -4,6 +4,6 @@
 > Open the "./main" file by the linux terminal.
 
 
-##Requirements:
+## Requirements:
 
 > speech_recognition 
