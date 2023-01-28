@@ -39,13 +39,15 @@ class JarvisBrain {        // A classe
     string y;
     cout << botName << "Desculpe, ainda nao sei responder a isso. Poderia me ensinar?\n"; //Preparando o bot para aprender
     cout << "Digite para o Jarvis: -";
-    getline(cin, y);
-    if (y == "sim"){
+    y = openPython();
+    cout << y << endl;
+    if (y == "yes"){
         string newKnowledge;
         cout << botName << "Como voce responderia a isso?\n";
         cout << "Digite para o Jarvis: -";
-        getline(cin, newKnowledge);
 
+      newKnowledge = openPython();
+      cout << x << endl;
 
         newfile.open("botLearning.txt",ios::app);
         if (newfile.is_open())
@@ -65,6 +67,22 @@ class JarvisBrain {        // A classe
     }
 
         
+
+}
+
+string openPython(){
+    string command2 = "python3 speech.py > /dev/null 2>&1";
+    const char* charCommand2=command2.c_str();
+    system(charCommand2);
+    cout << endl;
+
+    ifstream file2("temporary.txt");
+    string line2;
+    if (file2.is_open()) {
+       getline(file2, line2);
+    }
+    return line2;
+
 
 }
 
