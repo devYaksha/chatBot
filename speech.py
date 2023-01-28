@@ -15,14 +15,14 @@ def main():
         print("Reconhecendo.... ")
 
 
-        # recognize speech using google
+        # reconhecer a fala e escrever em um arquivo de texto
 
         try:
             saveFile = r.recognize_google(audio)
             print("You have said \n" + r.recognize_google(audio))
             print("Audio Recorded Successfully \n ")
-            with open("botLearning.txt", "a") as f:
-                f.write("\n"+saveFile+":")
+            with open("temporary.txt", "w") as f:  # escrever oq foi dito no arquivo temporário
+                f.write(saveFile)
 
 
         except Exception as e:
@@ -31,9 +31,7 @@ def main():
 
 
 
-        # write audio
-        with open("recorded.wav", "wb") as f:
-            f.write(audio.get_wav_data())
+       
 
 
 if __name__ == "__main__":

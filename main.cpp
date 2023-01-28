@@ -35,11 +35,17 @@ int main(int argc, char const *argv[])
     while (meuBoleano == true){
     
     cout << "Digite ou fale para o Jarvis: ";
-    string command2 = "python3 speech.py";
+    string command2 = "python3 speech.py > /dev/null 2>&1";
     const char* charCommand2=command2.c_str();
     system(charCommand2);
     cout << endl;
-    getline(cin, x);
+    ifstream file2("temporary.txt");
+    string line2;
+    if (file2.is_open()) {
+       getline(file2, line2);
+       x = line2;
+    }
+
 
     
 
