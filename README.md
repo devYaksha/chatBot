@@ -1,8 +1,9 @@
-# chatBot
-a simple learning and speaking chatbot, for UFOP
+# Speaking chatBot
+######Guilherme Oliveira Santos SI 2022/2 - UFOP
+
+> Open the "./main" file by the linux terminal.
 
 
-Guilherme Oliveira Santos
-SI 2022/2 - UFOP
+##Requirements:
 
-abra o arquivo pelo terminal
+> speech_recognition 
