@@ -34,8 +34,14 @@ int main(int argc, char const *argv[])
     
     while (meuBoleano == true){
     
-    cout << "Digite para o Jarvis: ";
+    cout << "Digite ou fale para o Jarvis: ";
+    string command2 = "python3 speech.py";
+    const char* charCommand2=command2.c_str();
+    system(charCommand2);
+    cout << endl;
     getline(cin, x);
+
+    
 
     ifstream file("botLearning.txt");
     vector<pair<string,string>> dataset;

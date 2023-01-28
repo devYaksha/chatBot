@@ -1,36 +1,10 @@
-ola:ola
-tudo bem?:sim e com você?
-test10:teste 10 ok
+
+hello Jarvis:
+hello world hello Road:hello:Hello!
 hello:hello
-tudo bem tambem:que bom!
-everything allright?:yes, everything fine.
-are you allright?:yes, i am
-ok:ok
-ok:sim
-are u allright?:yes, i am.
-oi:oi!
-yes, i am:it is very good that u are allright.
-everythig allright?:yes
-ssim:sim
-ssim:sim
-tudo bem tambem.:que bom!
-tudo bem:que bom!
-tudo bem:sim
-espeak -v +f3 \:--------------------------------------------------
-espeak -v +f3 \""+phrase+"\":--------------------------------------------------
-\:--------------------------------------------------
-"+phrase+":
-ttudo bem?:sim, e com voce?
-hello?:hello?
-sim:que bom!
-Hello:Hello
-Tudo bem?:Tudo bem, e com voce?
-tudo bom?:tudo ótimo.
-Tudo bom?:Tudo ótimo
-você conhece o gustavo?:ele é esquisito
-test56:teste ok
-test57:teste 57 ok
-test888:teste 888 ok
-tudo joia?:tudo joia.
-teste9999:teste ok
-teste 10:ok
+hello jarvis:hello user
+
+hello:
+hello hello:
+hello Jarvis:
+hello again:
