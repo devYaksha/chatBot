@@ -1,1 +1,8 @@
 hello:hello
+how are you:I'm fine thanks to Ask
+good morning Jarvis:good morning user
+hello Jarvis:hello everything all right
+what's up:I'm fine
+what you do for a living:I do nothing I'm only about
+what do you think about University:I think universities very important to solve people's problem
+what do you think about online games:I think that online games is important to many things of Health

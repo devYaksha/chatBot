@@ -37,17 +37,16 @@ class JarvisBrain {        // A classe
 
   void aprendizado(string x){
     string y;
-    cout << botName << "Desculpe, ainda nao sei responder a isso. Poderia me ensinar?\n"; //Preparando o bot para aprender
-    cout << "Digite para o Jarvis: -";
+    cout << botName << "Desculpe, ainda nao sei responder a isso. Poderia me ensinar?\n";
+    SpeechByEspeak("Desculpe, ainda nao sei responder a isso. Poderia me ensinar?"); //Preparando o bot para aprender
     y = openPython();
-    cout << y << endl;
     if (y == "yes"){
         string newKnowledge;
         cout << botName << "Como voce responderia a isso?\n";
-        cout << "Digite para o Jarvis: -";
+        SpeechByEspeak("Como voce responderia a isso?");
+
 
       newKnowledge = openPython();
-      cout << x << endl;
 
         newfile.open("botLearning.txt",ios::app);
         if (newfile.is_open())
@@ -55,15 +54,24 @@ class JarvisBrain {        // A classe
         newfile<<x<<":";
         newfile<<newKnowledge<<endl;
         newfile.close();
-        newKnowledge = "";
-        cout << botName << "Aprendido com sucesso" << endl;
+        newKnowledge = ""; // evitar estouro de string
+        cout << botName << "Obrigado, aprendi a como responder o (" << x << ")"<< endl;
+        string LearnedResponse = "Obrigado, aprendi a como responder o"+x;
+        SpeechByEspeak(LearnedResponse);
 
     }
 
+    }
+
+    else if(y=="no" || "not" || "nope")
+    {
+      cout << botName << "Ok, nao irei aprender.\n";
+      SpeechByEspeak("Ok, nao irei aprender.\n");
     }
 
     else{
-        cout << botName << "Ok, nao irei aprender.\n";
+        cout << botName << "Desculpe, nao te compreendi.";
+        SpeechByEspeak("Desculpe, nao te compreendi");
     }
 
         
@@ -82,9 +90,14 @@ string openPython(){
        getline(file2, line2);
     }
     return line2;
-
-
 }
 
+void SpeechByEspeak(string texto){
+    string command = "espeak -v +f3 \""+texto+"\"";
+    const char* charCommand=command.c_str();
+    system(charCommand);
+    cout << endl; 
+
+}
 
     };

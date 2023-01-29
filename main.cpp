@@ -3,75 +3,64 @@
 #include <string>
 #include <time.h>
 #include <fstream>
-#include "classes.cpp"
+#include "classes.cpp" // script que tem as funções utilizadas na main
 #include <vector>
 
 
 using namespace std;
-string x;
-bool meuBoleano = true;
+string UserInput;
 string botName = "Jarvis: ";
-
 JarvisBrain myObj;
-
-
 
 string getResponse(string input, vector<pair<string, string>> dataset) {
     for (auto p : dataset) {
         if (input == p.first) {
             return p.second;
         }
-        
-    } 
+            } 
 
-    myObj.aprendizado(x);
-    return "nulo";
+    myObj.aprendizado(UserInput);
+    return "nulo"; //retorno da string no caso de que nao haja conhecimento
 }
 
 
 int main(int argc, char const *argv[])
 {
     
-    while (meuBoleano == true){
+    while (true){
     
-    x = myObj.openPython();
+    UserInput = myObj.openPython(); //funcao para abrir o arquivo python
 
     ifstream file("botLearning.txt");
     vector<pair<string,string>> dataset;
     string line;
 
-    if (x=="exit")
+    if (UserInput=="exit")
     {
-        cout << botName << "Fechando o bot..."<<endl;
+        string closingOutput= "closing the bot.";
+        cout << botName << closingOutput << endl;
+        myObj.SpeechByEspeak(closingOutput);
         break;
     }
     
 
     if (file.is_open()) {
         while (getline(file, line)) {
-            // Corta a linha pelo ":";
-            int pos = line.find(":");
+            int pos = line.find(":"); // Corta a linha pelo ":";
             string input = line.substr(0, pos);
             string output = line.substr(pos + 1);
-            // Adiciona o par entrada-saída ao conjunto de dados
-            dataset.push_back({input, output});
+            dataset.push_back({input, output}); // Adiciona o par entrada-saída ao conjunto de dados
             }
             
         file.close();}
-    string phrase = getResponse(x,dataset);
-    if(line.find(":" && x==line)&& phrase != "nulo"){
 
-            cout << botName << phrase << endl;    
-
+    string phrase = getResponse(UserInput,dataset);
+    if(phrase != "nulo"){
+            cout << "You: " << UserInput << endl;
+            cout << botName << phrase << endl;
+            myObj.SpeechByEspeak(phrase);
+       
     }
-
-
-    string command = "espeak -v +f3 \""+phrase+"\"";
-    const char* charCommand=command.c_str();
-    system(charCommand);
-    cout << endl;
-
-
-    }
+} //fecha while
 
 };
